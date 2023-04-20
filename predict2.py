@@ -8,11 +8,13 @@ def load_data(sheets_url):
     csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
     return pd.read_csv(csv_url)
 
-aita = load_data(st.secrets["public_gsheets_url"]).dropna()
+aita = load_data(st.secrets["public_gsheets_url"])
+
+st.write(aita[0:5])
 
 
 #build model
-import sklearn
+'''import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2), stop_words='english')
 features = tfidf.fit_transform(aita.clean_btext).toarray()
@@ -59,4 +61,4 @@ elif result == [2.]:
 else:
     st.text('No Assholes Here')
 
-st.text('With', accuracy_score_nb*100, 'percent accuracy')
+st.text('With', accuracy_score_nb*100, 'percent accuracy')'''
