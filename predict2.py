@@ -9,7 +9,7 @@ def load_data(sheets_url):
     return pd.read_csv(csv_url)
 
 aita = load_data(st.secrets["public_gsheets_url"])
-
+aita.dropna()
 
 #build model
 import sklearn
