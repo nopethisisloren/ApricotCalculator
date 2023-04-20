@@ -10,6 +10,8 @@ def load_data(sheets_url):
 
 aita = load_data(st.secrets["public_gsheets_url"])
 
+aita = aita.dropna()
+
 #build model
 import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
