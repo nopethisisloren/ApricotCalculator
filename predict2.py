@@ -1,6 +1,7 @@
 #get data
 import pandas as pd
 
+import streamlit as st
 
 @st.cache_data(ttl=600)
 def load_data(sheets_url):
@@ -32,7 +33,6 @@ clf = linear_model.LogisticRegression(multi_class="multinomial", solver='newton-
 
 
 #streamlit implimentation
-import streamlit as st
 
 st.title('Asshole Calculator')
 
