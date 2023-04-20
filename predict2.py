@@ -1,8 +1,13 @@
 #get data
 import pandas as pd
 
-data_import = pd.read_csv('datasmall.csv')
-aita = pd.DataFrame(data_import)
+
+@st.cache_data(ttl=600)
+def load_data(sheets_url):
+    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
+    return pd.read_csv(csv_url)
+
+aita = load_data(st.secrets["https://docs.google.com/spreadsheets/d/e/2PACX-1vQfjsb1L3-jUyuuo459Ny5EQKgrEGF5WpV_3mNgpdH9myKGr9wg9J9d_kYdggb6RBMGEgb7U4D9vuvY/pubhtml?gid=1505671205&single=true"])
 
 
 #build model
