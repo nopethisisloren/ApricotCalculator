@@ -6,7 +6,7 @@ aita = pd.DataFrame(data_import)
 
 
 #build model
-
+import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf = TfidfVectorizer(sublinear_tf=True, min_df=5, norm='l2', encoding='latin-1', ngram_range=(1, 2), stop_words='english')
 features = tfidf.fit_transform(aita.clean_btext).toarray()
